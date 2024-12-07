@@ -1,7 +1,6 @@
 from database import init_db, add_link, get_links, export_links, import_links
 from checker import check_url_ssl, check_url_whois
 from reports import generate_report_csv
-from datetime import datetime
 from pprint import pprint
 
 
