@@ -2,6 +2,7 @@ from database import init_db, add_link, get_links, export_links, import_links
 from checker import check_url_ssl, check_url_whois
 from reports import generate_report_csv
 from pprint import pprint
+from google_save_browsing_api import check_url_safety as google_api
 
 
 def main():
@@ -22,6 +23,8 @@ def main():
             is_ssl = check_url_ssl(url)
             whois_info = check_url_whois(url)
             status = "Безопасен" if is_ssl else "Подозрительный"
+            google_response = google_api(url)
+            print(f"Результат сканирования с помощью GOOGLE Save Browsing:{google_response}")
             print(f"Результат: {status}")
             print(f"WHOIS информация:")
             pprint(whois_info)
