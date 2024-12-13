@@ -17,36 +17,41 @@ def main():
         print("6. Выход")
 
         choice = input("Выберите опцию: ")
-
-        if choice == '1':
-            url = input("Введите URL для проверки: ")
-            is_ssl = check_url_ssl(url)
-            whois_info = check_url_whois(url)
-            status = "Безопасен" if is_ssl else "Подозрительный"
-            google_response = google_api(url)
-            print(f"Результат сканирования с помощью GOOGLE Save Browsing:{google_response}")
-            print(f"Результат: {status}")
-            print(f"WHOIS информация:")
-            pprint(whois_info)
-            add_link(url, status)
-        elif choice == '2':
-            links = get_links()
-            for link in links:
-                print(link)
-        elif choice == '3':
-            generate_report_csv()
-        elif choice == '4':
-            file_name = input("Введите имя файла для экспорта (по умолчанию: database.csv): ") or "database.csv"
-            export_links(file_name)
-        elif choice == '5':
-            file_name = input("Введите имя файла для импорта: ")
-            import_links(file_name)
-        elif choice == '6':
-            print("Выход из программы. До свидания!")
-            break
-        else:
-            print("Неверный выбор, попробуйте снова.")
-
+        print()
+        try:
+            if choice == '1':
+                try:
+                    url = input("Введите URL для проверки: ")
+                    is_ssl = check_url_ssl(url)
+                    whois_info = check_url_whois(url)
+                    status = "Безопасен" if is_ssl else "Подозрительный"
+                    google_response = google_api(url)
+                    print(f"Результат сканирования с помощью GOOGLE Save Browsing:{google_response}")
+                    print(f"Результат: {status}")
+                    print(f"WHOIS информация:")
+                    pprint(whois_info)
+                    add_link(url, status)
+                except :
+                    print(f"Неправильный ввод ")
+            elif choice == '2':
+                links = get_links()
+                for link in links:
+                    print(link)
+            elif choice == '3':
+                generate_report_csv()
+            elif choice == '4':
+                file_name = input("Введите имя файла для экспорта (по умолчанию: database.csv): ") or "database.csv"
+                export_links(file_name)
+            elif choice == '5':
+                file_name = input("Введите имя файла для импорта: ")
+                import_links(file_name)
+            elif choice == '6':
+                print("Выход из программы. До свидания!")
+                break
+            else:
+                print("Неверный выбор, попробуйте снова.")
+        except :
+            print(f"Ошибка, попробуйте еще")
 
 if __name__ == "__main__":
     init_db()
