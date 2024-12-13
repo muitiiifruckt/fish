@@ -27,7 +27,7 @@ def check_url_safety(url):
     if response.status_code == 200:
         threats = response.json()
         if "matches" in threats:
-            return threats["matches"]
+            return "Небезопасно"
         else:
             return "Безопасно"
     else:
