@@ -1,0 +1,30 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Исключаем виртуальную среду
+.venv/
+venv/
+
+# Исключаем выходные файлы или директории
+output/
+
+# Исключаем временные файлы
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Исключаем файлы, связанные с IDE и редакторами
+.vscode/
+.idea/
+*.swp
+
+# Исключаем исполняемые файлы и логи
+*.log
+*.exe
+*.dll
