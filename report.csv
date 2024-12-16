@@ -13,3 +13,45 @@ ID,URL,Status,Added On
 12,https://vk.com/feed,Безопасен,2024-12-11 14:23:46
 13,http://testsafebrowsing.appspot.com/s/malware.html,Подозрительный,2024-12-11 14:53:22
 14,http://testsafebrowsing.appspot.com/s/malware.html,Подозрительный,2024-12-11 14:53:28
+15,https://kremlin.ru/,Подозрительный,2024-12-16 22:51:03
+16,https://ru.wikipedia.org,Безопасен,2024-12-16 22:51:03
+17,https://www.gismeteo.ru/,Подозрительный,2024-12-16 22:51:03
+18,https://chatgpt.com,Безопасен,2024-12-16 22:51:03
+19,https://kremlin.ru/,Подозрительный,2024-12-16 22:51:03
+20,from pprint import pprint,Подозрительный,2024-12-16 22:51:03
+21,https://kremlin.ru/,Подозрительный,2024-12-16 22:51:03
+22,https://kremlin.ru/,Подозрительный,2024-12-16 22:51:03
+23,https://kremlin.ru/,Подозрительный,2024-12-16 22:51:03
+24,https://kremlin.ru/,Подозрительный,2024-12-16 22:51:03
+25,https://kremlin.ru/,Подозрительный,2024-12-16 22:51:03
+26,https://vk.com/feed,Безопасен,2024-12-16 22:51:03
+27,http://testsafebrowsing.appspot.com/s/malware.html,Подозрительный,2024-12-16 22:51:03
+28,http://testsafebrowsing.appspot.com/s/malware.html,Подозрительный,2024-12-16 22:51:03
+29,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+30,https://ru.wikipedia.org,Безопасен,2024-12-16 22:55:43
+31,https://www.gismeteo.ru/,Подозрительный,2024-12-16 22:55:43
+32,https://chatgpt.com,Безопасен,2024-12-16 22:55:43
+33,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+34,from pprint import pprint,Подозрительный,2024-12-16 22:55:43
+35,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+36,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+37,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+38,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+39,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+40,https://vk.com/feed,Безопасен,2024-12-16 22:55:43
+41,http://testsafebrowsing.appspot.com/s/malware.html,Подозрительный,2024-12-16 22:55:43
+42,http://testsafebrowsing.appspot.com/s/malware.html,Подозрительный,2024-12-16 22:55:43
+43,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+44,https://ru.wikipedia.org,Безопасен,2024-12-16 22:55:43
+45,https://www.gismeteo.ru/,Подозрительный,2024-12-16 22:55:43
+46,https://chatgpt.com,Безопасен,2024-12-16 22:55:43
+47,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+48,from pprint import pprint,Подозрительный,2024-12-16 22:55:43
+49,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+50,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+51,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+52,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+53,https://kremlin.ru/,Подозрительный,2024-12-16 22:55:43
+54,https://vk.com/feed,Безопасен,2024-12-16 22:55:43
+55,http://testsafebrowsing.appspot.com/s/malware.html,Подозрительный,2024-12-16 22:55:43
+56,http://testsafebrowsing.appspot.com/s/malware.html,Подозрительный,2024-12-16 22:55:43

@@ -1,10 +1,20 @@
 import sqlite3
 import csv
 
-def import_links(file_name):
+from PyQt6.QtWidgets import QFileDialog
+
+def import_links():
     try:
+        # Открытие файлового менеджера для выбора файла
+        file_name, _ = QFileDialog.getOpenFileName(
+            None, "Выберите файл", "", "CSV Files (*.csv)"  # Диалог для выбора файла
+        )
+        
+        if not file_name:  # Если файл не выбран, выходим
+            return
         conn = sqlite3.connect('phishing_links.db')
         cursor = conn.cursor()
+        
         with open(file_name, mode="r", newline="", encoding="utf-8") as file:
             reader = csv.reader(file)
             next(reader)  # Пропустить заголовок
@@ -15,25 +25,34 @@ def import_links(file_name):
                 )
         conn.commit()
         conn.close()
-        print(f"Импорт данных из {file_name} выполнен успешно.")
+        return None
     except Exception as e:
-        print(f"Ошибка при импорте данных: {e}")
+        return e
 
-def export_links(file_name="database.csv"):
-    conn = sqlite3.connect('phishing_links.db')
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM phishing_links")
-    links = cursor.fetchall()
-    conn.close()
-
+def export_links():
     try:
+        # Открытие файлового менеджера для выбора места сохранения файла
+        file_name, _ = QFileDialog.getSaveFileName(
+            None, "Сохранить файл", "", "CSV Files (*.csv)"  # Диалог для сохранения файла
+        )
+
+        if not file_name:  # Если файл не выбран, выходим
+            return
+
+        # Получаем данные из базы данных
+        conn = sqlite3.connect('phishing_links.db')
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM phishing_links")
+        links = cursor.fetchall()
+        conn.close()
+        # Записываем данные в выбранный файл
         with open(file_name, mode="w", newline="", encoding="utf-8") as file:
             writer = csv.writer(file)
             writer.writerow(["ID", "URL", "Status", "Added On"])
             writer.writerows(links)
-        print(f"База данных успешно экспортирована в {file_name}.")
+        return None
     except Exception as e:
-        print(f"Ошибка при экспорте: {e}")
+        return e
 
 def init_db():
     conn = sqlite3.connect('phishing_links.db')
