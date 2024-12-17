@@ -73,8 +73,11 @@ class MainApp(QMainWindow):
             whois_info = check_url_whois(url)
             status = "Безопасен" if is_ssl else "Подозрительный"
             google_response = google_api(url)
+            if google_response != "Небезопасно" and google_response != "Безопасно":
+                raise Exception
         except Exception as e:
             self.ui.outputEdit.append(f"Формирование отчета не произошел : {e}")
+            return
         if save_results_pdf(url,is_ssl,google_response,whois_info) is None:
             self.ui.outputEdit.append("Формирование отчета произошел")
         else:

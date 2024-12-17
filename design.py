@@ -5,7 +5,7 @@ from PyQt6.QtCore import QCoreApplication, QMetaObject
 class Ui_MainWindow(object):
 
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName('MainWindow')
+        MainWindow.setObjectName('Ivan_gey')
         MainWindow.resize(624, 462)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName('centralwidget')
@@ -46,13 +46,13 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate('MainWindow', 'MainWindow'))
-        self.label.setText(_translate('MainWindow', 'Поле ввода URL сайта'))
-        self.pushButton.setText(_translate('MainWindow', 'Проверить URL'))
-        self.pushButton_4.setText(_translate('MainWindow', 'Экспорт базы данных'))
-        self.pushButton_3.setText(_translate('MainWindow', 'Импорт базы данных'))
-        self.pushButton_2.setText(_translate('MainWindow', 'Вывести базу данных'))
-        self.pushButton_5.setText(_translate('MainWindow', 'СФормировать отчет'))
+        MainWindow.setWindowTitle(_translate('CatCheck', 'CatCheck'))
+        self.label.setText(_translate('CatCheck', 'Поле ввода URL сайта'))
+        self.pushButton.setText(_translate('CatCheck', 'Проверить URL'))
+        self.pushButton_4.setText(_translate('CatCheck', 'Экспорт базы данных'))
+        self.pushButton_3.setText(_translate('CatCheck', 'Импорт базы данных'))
+        self.pushButton_2.setText(_translate('CatCheck', 'Вывести базу данных'))
+        self.pushButton_5.setText(_translate('CatCheck', 'СФормировать отчет'))
 if __name__ == '__main__':
     import sys
     app = QApplication(sys.argv)
