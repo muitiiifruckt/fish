@@ -1,10 +1,9 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QMainWindow
-from design import Ui_MainWindow  # Импортируем ваш UI
-from database import init_db, add_link, get_links, export_links, import_links
+from design import Ui_MainWindow  
+from database import init_db, get_links, export_links, import_links
 from checker import check_url_ssl, check_url_whois
-from reports import generate_report_csv
-from pprint import pprint
+from reports import save_results_pdf
 from google_save_browsing_api import check_url_safety as google_api
 
 class MainApp(QMainWindow):
@@ -22,6 +21,8 @@ class MainApp(QMainWindow):
 
 
     def check_url(self):
+        """Взясечкие проверки url - 1) по наличию 'https' 2) по whois 3)по api google save browsing
+        Вывод данных идет сразу в окно вывода"""
         try:
             # Обработчик кнопки "Проверить URL"
             url = self.ui.textEdit.toPlainText()
@@ -43,27 +44,38 @@ class MainApp(QMainWindow):
             self.ui.outputEdit.append(str(whois_info))
         except:
             self.ui.outputEdit.append("Неправильный ввод")
-
+            
     def show_database(self):
+        """Выводит все записи в бд"""
         links = get_links()
-
         for link in links:
-            self.ui.outputEdit.append(' '.join(map(str, link)))
-
+            self.ui.outputEdit.append(' '.join(map(str, link))) 
+            
     def import_database(self):
+        """Импортирует записи в бд из файла"""
         if import_links() is None:
             self.ui.outputEdit.append("Импорт произошел")
         else:
             self.ui.outputEdit.append("Импорт не произошел")
 
     def export_database(self):
+        """Экспортирует записи из бд в файл"""
         if export_links() is None:
             self.ui.outputEdit.append("Экспорт произошел")
         else:
             self.ui.outputEdit.append("Экспорт не произошел")
 
     def generate_report(self):
-        if generate_report_csv() is None:
+        """Генерация отчета по url"""
+        try:
+            url = self.ui.textEdit.toPlainText()
+            is_ssl = check_url_ssl(url)
+            whois_info = check_url_whois(url)
+            status = "Безопасен" if is_ssl else "Подозрительный"
+            google_response = google_api(url)
+        except Exception as e:
+            self.ui.outputEdit.append(f"Формирование отчета не произошел : {e}")
+        if save_results_pdf(url,is_ssl,google_response,whois_info) is None:
             self.ui.outputEdit.append("Формирование отчета произошел")
         else:
             self.ui.outputEdit.append("Формирование отчета не произошел")

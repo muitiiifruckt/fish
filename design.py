@@ -1,3 +1,4 @@
+# Файл с дизайном приложения, написано с помощью qt-designer
 from PyQt6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QTextEdit, QPushButton, QStatusBar
 from PyQt6.QtCore import QCoreApplication, QMetaObject
 

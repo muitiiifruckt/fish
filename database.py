@@ -4,6 +4,11 @@ import csv
 from PyQt6.QtWidgets import QFileDialog
 
 def import_links():
+    """ Вызывает диалоговое окно для выбора файла и добавляет данные из файла в локальную базу данных
+
+    Returns:
+        _type_: None | Exception | 0
+    """    
     try:
         # Открытие файлового менеджера для выбора файла
         file_name, _ = QFileDialog.getOpenFileName(
@@ -11,7 +16,7 @@ def import_links():
         )
         
         if not file_name:  # Если файл не выбран, выходим
-            return
+            return 0
         conn = sqlite3.connect('phishing_links.db')
         cursor = conn.cursor()
         
@@ -30,6 +35,11 @@ def import_links():
         return e
 
 def export_links():
+    """ Вызывает диалоговое окно для выбора файла и записывает данные из локальной базы данных в файл
+
+    Returns:
+        _type_: None | Exception | 0
+    """    
     try:
         # Открытие файлового менеджера для выбора места сохранения файла
         file_name, _ = QFileDialog.getSaveFileName(
@@ -37,7 +47,7 @@ def export_links():
         )
 
         if not file_name:  # Если файл не выбран, выходим
-            return
+            return 0
 
         # Получаем данные из базы данных
         conn = sqlite3.connect('phishing_links.db')
@@ -55,6 +65,7 @@ def export_links():
         return e
 
 def init_db():
+    """ Инициализация базы данны sqlite3"""
     conn = sqlite3.connect('phishing_links.db')
     cursor = conn.cursor()
     cursor.execute('''
@@ -69,6 +80,8 @@ def init_db():
     conn.close()
 
 def add_link(url, status):
+    """Добавление данных в базу данных
+    input: url, status"""
     conn = sqlite3.connect('phishing_links.db')
     cursor = conn.cursor()
     cursor.execute('INSERT INTO phishing_links (url, status) VALUES (?, ?)', (url, status))
@@ -76,6 +89,8 @@ def add_link(url, status):
     conn.close()
 
 def get_links():
+    """Возвращает данные в базе данных
+    otput: links"""
     conn = sqlite3.connect('phishing_links.db')
     cursor = conn.cursor()
     cursor.execute('SELECT * FROM phishing_links')

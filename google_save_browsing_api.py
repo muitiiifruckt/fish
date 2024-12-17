@@ -1,13 +1,20 @@
 
 import requests
-import hashlib
-import base64
 
 
+# api - ключ от сервисов google, для пользования api google save browsing
 API_KEY = "AIzaSyA01TyRfuGCtCjil93vczc5sfNWshjjf2E"
 URL = 'https://safebrowsing.googleapis.com/v4/threatMatches:find?key=' + API_KEY
 
 def check_url_safety(url):
+    """ Проверка url по api google save browsing
+
+    Args:
+        url (_type_): str
+
+    Returns:
+        _type_: str 
+    """    
     # Создаем payload для API
     payload = {
         "client": {
